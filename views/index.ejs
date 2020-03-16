@@ -1,0 +1,47 @@
+<%- include("partials/header") %>
+
+<div class="ui main text container">
+    <div class="ui huge header">
+         Blog App
+    </div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% blogs.forEach((blogs)=>{ %>
+                <div class="item ">
+                    <div class="image">
+                        <img src="<%= blogs.image %>"  >
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/blogs/<%= blogs._id %>"><%= blogs.title %></a>
+                        <div class="meta">
+                            <span><%= blogs.created.toDateString() %></span>
+                        </div>
+                       <div class="description"><p><%- blogs.body.substring(0,100) %>...</p> </div> 
+                               
+                        <div class="extra">
+                            <a class="ui floated basic violet button" href="/blogs/<%= blogs._id %>">
+                            Read More!
+                            <i class="right chevron icon"></i>
+                            </a>
+                        </div>  
+                    </div>                    
+                </div>    
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <% blogs.forEach((blogs)=>{ %>
+<div>
+    <h2><%= blogs.title %></h2>
+    <img src="<%= blogs.image %>" >
+    <span><%= blogs.created %></span>
+    <p><%= blogs.body.substring(0,100) %>...</p>
+    <a href="/blogs/<%= blogs._id %>">read more</a>
+</div>
+
+<% }) %> -->
+<%- include("partials/footer") %>
